@@ -1,16 +1,16 @@
-/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== BODY ===== */
 body {
   min-height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   padding: 20px;
 
   font-family: "Segoe UI", Arial, sans-serif;
@@ -22,82 +22,92 @@ body {
     linear-gradient(135deg, #0f172a, #1e1b4b);
 }
 
-/* ===== CARD ===== */
-body::before {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  background: rgba(139, 92, 246, 0.15);
-  filter: blur(80px);
-  z-index: 0;
-}
-
-/* ===== CONTENIDO ===== */
-h1,
-p {
-  position: relative;
-  z-index: 1;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
+/* Contenido principal */
+.contenedor {
+  width: 100%;
+  max-width: 800px;
   text-align: center;
-  margin-bottom: 20px;
 
-  background: linear-gradient(90deg, #c084fc, #38bdf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  padding: 50px 30px;
 
   animation: aparecer 1s ease;
 }
 
-p {
-  max-width: 650px;
-  margin: 12px auto;
-  padding: 18px 25px;
-
-  text-align: center;
+/* Saludo */
+.saludo {
   font-size: 1.1rem;
-  line-height: 1.6;
+  color: #c4b5fd;
+  margin-bottom: 18px;
+}
 
+/* Nombre */
+h1 {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 15px;
+
+  background: linear-gradient(90deg, #c084fc, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Carrera */
+.carrera {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  margin-bottom: 8px;
+}
+
+/* Materia */
+.materia {
+  font-size: 1.1rem;
+  color: #94a3b8;
+}
+
+/* Línea decorativa */
+.linea {
+  width: 100px;
+  height: 3px;
+
+  margin: 30px auto;
+
+  border-radius: 10px;
+
+  background: linear-gradient(90deg,
+      #a855f7,
+      #38bdf8);
+}
+
+/* Mensaje de nube */
+.nube {
+  display: inline-block;
+
+  padding: 14px 22px;
+
+  font-size: 1rem;
   color: #e2e8f0;
 
-  background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 15px;
+  border-radius: 50px;
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.07);
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
 
-  animation: subir 1s ease;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-p:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.13);
+.nube:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255, 255, 255, 0.12);
+
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
 }
 
-/* ===== ANIMACIONES ===== */
-
+/* Animación */
 @keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(-25px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes subir {
   from {
     opacity: 0;
     transform: translateY(25px);
@@ -109,15 +119,26 @@ p:hover {
   }
 }
 
-/* ===== RESPONSIVE ===== */
-
+/* Responsive */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 2.5rem;
+
+  .contenedor {
+    padding: 30px 15px;
   }
 
-  p {
+  .saludo {
     font-size: 1rem;
-    padding: 15px;
+  }
+
+  .carrera {
+    font-size: 1.15rem;
+  }
+
+  .materia {
+    font-size: 1rem;
+  }
+
+  .nube {
+    font-size: 0.9rem;
   }
 }
